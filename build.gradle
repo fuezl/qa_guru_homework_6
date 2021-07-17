@@ -6,6 +6,10 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
 allure {
     version = '2.14.0'
     aspectjweaver = true
