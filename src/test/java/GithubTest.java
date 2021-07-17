@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import pages.GithubSteps;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selectors.byText;
@@ -13,7 +14,7 @@ public class GithubTest {
 
     String REPOSITORY = "eroshenkoam/allure-example";
     String TAB = "Issues";
-    String ISSUE_NUMBER = "68";
+    Integer ISSUE_NUMBER = 68;
 
     @Test
     void testRepositoryIssue() {
@@ -45,6 +46,22 @@ public class GithubTest {
 
         //Assert
         step(format("Проверяем существование issue c номером %s", ISSUE_NUMBER), () ->
-                $(withText(ISSUE_NUMBER)).should(exist));
+                $(withText(format("%s", ISSUE_NUMBER))).should(exist));
+    }
+
+    GithubSteps githubSteps = new GithubSteps();
+
+    @Test
+    void testRepositoryIssueWithAnnotationSteps() {
+        //Arrange
+        githubSteps.openMainPage();
+
+        //Act
+        githubSteps.searchForRepository(REPOSITORY);
+        githubSteps.goToRepository(REPOSITORY);
+        githubSteps.openTab(TAB);
+
+        //Assert
+        githubSteps.shouldSeeIssueWithNumber(ISSUE_NUMBER);
     }
 }
