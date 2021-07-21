@@ -1,4 +1,4 @@
-package pages;
+package steps;
 
 import io.qameta.allure.Step;
 
@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static java.lang.String.format;
 import static org.openqa.selenium.By.linkText;
-import static org.openqa.selenium.By.partialLinkText;
 
 public class GithubSteps {
 

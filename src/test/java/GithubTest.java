@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import pages.GithubSteps;
+import steps.GithubSteps;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selectors.byText;
